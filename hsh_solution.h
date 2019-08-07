@@ -6,7 +6,7 @@
 #define Vertices_Num 9
 #define Max_Vertice_Num 100
 #define Max_Step 50
-#define Tabu_Length 10
+#define Tabu_Length 20
 
 typedef struct move_neighbour   //store the neighbour move
 {
@@ -28,6 +28,7 @@ extern int init_color_num; //first  color_num
 extern int optimize_num;   //store f(s)
 extern int Critical_v_p;   //point to the next critical vertice
 extern int Neigh_p;     //point the next neighbour move
+extern int depth;           //times of changeing number of color
 extern int jishuqi;
 
 extern move_node * Neighbourhood; //store the neighbourhood move
@@ -59,7 +60,7 @@ void free_matrix(void);
 //free the second array
 void make_graph(void);
 //make the test graph
-void test(void);
+int test(void);
 //test each function
 void judge_neighbourhood(void);
 //find the best neighbourhood
@@ -86,5 +87,7 @@ void print_neibourhood(void);
 void print_answer(void);
 //print the answer of the graph
 void print_tabu_list(void);
+void free_tabu_list(void);
+void rand_color(void);
 
 #endif // HSH_SOLUTION_H_INCLUDED

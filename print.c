@@ -80,6 +80,7 @@ void print_answer(void)
         }
         putchar('\n');
     }
+        printf("\nf(s)=%d\n",optimize_num);
 }
 
 void print_tabu_list(void)

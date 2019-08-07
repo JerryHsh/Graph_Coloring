@@ -19,6 +19,7 @@ int Neigh_p;     //point the next neighbour move
 int step;        //store the step of move
 int jishuqi;     //store the calculate num
 int best_ever;      //store the best f(s)
+int depth;            //store the time of changing number of color
 
 move_node best;
 move_node best_nt;   //out of tabu_list
@@ -29,8 +30,11 @@ FILE * fp;
 
 int main()
 {
+    depth=0;
     jishuqi=0;
-    step=0;
+    color_num=Vertices_Num;
+    rand_color();
+    print_color();
     srand(time(NULL));
     fp=fopen("./graph.txt","r");
     make_graph();
@@ -39,7 +43,11 @@ int main()
     define_critical_array();
     C_Matrix=(int **)malloc(Vertices_Num*sizeof(int *));
     Tabu_list=(int **)malloc(Vertices_Num*sizeof(int *));
-    test();
+    while(test())
+    {
+        depth++;
+        color_num--;
+    }
     /*
     Critical_v_p=0;
     Neigh_p=0;
@@ -83,5 +91,4 @@ int calculate(void)         //correct
     }
     return optimize_num;
 }
-
 

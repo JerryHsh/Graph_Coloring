@@ -78,3 +78,21 @@ void reduce_tabu_list(void)
         }
     }
 }
+
+void free_tabu_list(void)
+{
+    int i;
+    for(i=0;i<Vertices_Num;i++)
+    {
+        free(Tabu_list[i]);
+    }
+}
+
+void rand_color(void)
+{
+    int i;
+    for(i=0;i<Vertices_Num;i++)
+    {
+        vertice_color[i]=rand()%color_num;
+    }
+}

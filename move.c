@@ -18,6 +18,7 @@ int move(int v,int a,int x) //v->vertice a->future color x->mode
         case 2:         //reproduce the color matrix,make tabulist
         {
             Tabu_list[v][vertice_color[v]]=rand()%Tabu_Length+1;
+            //print_tabu_list();
             re_color_matrix(v,a);
             vertice_color[v]=a;
             return 0;
