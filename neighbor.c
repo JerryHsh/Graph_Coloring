@@ -33,18 +33,49 @@ void judge_neighbourhood(void)
     {
         if(i==0)
         {
-            best.fs=Neighbourhood[i].fs;
-            best.c=Neighbourhood[i].c;
-            best.v=Neighbourhood[i].v;
+            if(!Tabu_list[Neighbourhood[i].v][Neighbourhood[i].c])
+            {
+                best_nt.fs=Neighbourhood[i].fs;
+                best_nt.c=Neighbourhood[i].c;
+                best_nt.v=Neighbourhood[i].v;
+            }
+            else
+            {
+                best_t.fs=Neighbourhood[i].fs;
+                best_t.c=Neighbourhood[i].c;
+                best_t.v=Neighbourhood[i].v;
+            }
         }
         else
         {
-            if(best.fs>Neighbourhood[i].fs)
-            { 
-                best.fs=Neighbourhood[i].fs;
-                best.c=Neighbourhood[i].c;
-                best.v=Neighbourhood[i].v;
+            if(!Tabu_list[Neighbourhood[i].v][Neighbourhood[i].c])
+            {
+                if(best_nt.fs>Neighbourhood[i].fs)
+                { 
+                    best_nt.fs=Neighbourhood[i].fs;
+                    best_nt.c=Neighbourhood[i].c;
+                    best_nt.v=Neighbourhood[i].v;
+                }
             }
+            else
+            {
+                if(best_t.fs>Neighbourhood[i].fs)
+                { 
+                    best_t.fs=Neighbourhood[i].fs;
+                    best_t.c=Neighbourhood[i].c;
+                    best_t.v=Neighbourhood[i].v;
+                }
+            }
+        }
+        if(best_t.fs<best_ever)
+        {
+            best=best_t;
+            best_ever=best_t.fs;
+        }
+        else 
+        {
+            best=best_nt;
+            best_ever=best_nt.fs;
         }
     }
 }

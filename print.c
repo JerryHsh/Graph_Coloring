@@ -81,3 +81,17 @@ void print_answer(void)
         putchar('\n');
     }
 }
+
+void print_tabu_list(void)
+{
+    int i,j;
+    printf("\nThis is Tabu list\n");
+    for(i=0;i<Vertices_Num;i++)
+    {
+        for(j=0;j<color_num;j++)
+        {
+            printf("%d ",Tabu_list[i][j]);
+        }
+        putchar('\n');
+    }
+}

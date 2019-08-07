@@ -20,9 +20,10 @@ void test(void)
     putchar('\n');
     color_matrix();
     best_ever=calculate();
-    while((best.fs!=0)&&(step<=Max_Step))
+    while((optimize_num!=0)&&(step<=Max_Step))
     {
     printf("\nThis is the %d step\n",++step);
+    print_tabu_list();
     //print_matrix();
     make_critical_vertice();
     //print_critical_vertice();

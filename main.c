@@ -21,6 +21,8 @@ int jishuqi;     //store the calculate num
 int best_ever;      //store the best f(s)
 
 move_node best;
+move_node best_nt;   //out of tabu_list
+move_node best_t;    //inside tabu list
 move_node * Neighbourhood; //store the neighbourhood move
 
 FILE * fp;

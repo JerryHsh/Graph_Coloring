@@ -32,6 +32,8 @@ extern int jishuqi;
 
 extern move_node * Neighbourhood; //store the neighbourhood move
 extern move_node best; //store the best move
+extern move_node best_nt;//best move outside tabu_list
+extern move_node best_t;//best move inside tabu_list
 
 extern FILE * fp;
 
@@ -83,5 +85,6 @@ void print_neibourhood(void);
 //print the neiborhood
 void print_answer(void);
 //print the answer of the graph
+void print_tabu_list(void);
 
 #endif // HSH_SOLUTION_H_INCLUDED
