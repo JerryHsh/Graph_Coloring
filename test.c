@@ -10,23 +10,26 @@ void test(void)
     for(i=0;i<Vertices_Num;i++)
     {
         C_Matrix[i]=(int *)malloc(color_num*sizeof(int));
+        Tabu_list[i]=(int *)malloc(color_num*sizeof(int));
     }
     for(i=0;i<Vertices_Num;i++)
     {
         fscanf(fp,"%d",&vertice_color[i]);
     }
+    init_tabu_list();
     putchar('\n');
     color_matrix();
-    print_matrix();
-    while(best.fs!=0)
+    best_ever=calculate();
+    while((best.fs!=0)&&(step<=Max_Step))
     {
+    printf("\nThis is the %d step\n",++step);
+    //print_matrix();
     make_critical_vertice();
-    print_critical_vertice();
+    //print_critical_vertice();
     judge_neighbourhood();
-    print_neibourhood();
+    //print_neibourhood();
     move(best.v,best.c,2);
-    color_matrix();
-    print_matrix();
-    print_answer();
+    optimize_num=best.fs;
     }
+    print_answer();
 }

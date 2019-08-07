@@ -42,6 +42,7 @@ void make_graph(void)           //correct
 
 void re_color_matrix(int v,int a)  //remake colormatrix depend on the move
 {                        //v means vertice ,a means future color
+    //printf("The function is been used for the %d times\n",++jishuqi);
     int i;
     for(i=0;i<Vertices_Num;i++)
     {
@@ -49,8 +50,31 @@ void re_color_matrix(int v,int a)  //remake colormatrix depend on the move
         {
             C_Matrix[i][vertice_color[v]]--;
             C_Matrix[i][a]++;
-            calculate();
+            //calculate();
             //not complited optimize_num haven't been written
+        }
+    }
+}
+
+void init_tabu_list(void)  
+{
+    int i,j;
+    for(i=0;i<Vertices_Num;i++)
+    {
+        for(j=0;j<color_num;j++)
+        Tabu_list[i][j]=0;
+    }
+}
+
+void reduce_tabu_list(void)
+{
+    int i,j;
+    for(i=0;i<Vertices_Num;i++)
+    {
+        for(j=0;j<color_num;j++)
+        {
+            if(Tabu_list[i][j]!=0)
+                Tabu_list[i][j]--;
         }
     }
 }

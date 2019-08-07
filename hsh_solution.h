@@ -5,6 +5,8 @@
 
 #define Vertices_Num 9
 #define Max_Vertice_Num 100
+#define Max_Step 50
+#define Tabu_Length 10
 
 typedef struct move_neighbour   //store the neighbour move
 {
@@ -17,27 +19,33 @@ extern int graph[Vertices_Num][Vertices_Num];  //store the graph
 extern int vertice_color[Vertices_Num];       //distribution color
 extern int critical_vertice[Max_Vertice_Num];
 extern int ** C_Matrix;  //store color matrix
+extern int ** Tabu_list; //store the Tabu_list
 
-extern int delta;           //store M[u][i]-M[u][j]
+extern int best_ever;   //store the best f(s)
 extern int color_num;      //color num that is been used
 extern int step;
 extern int init_color_num; //first  color_num
 extern int optimize_num;   //store f(s)
 extern int Critical_v_p;   //point to the next critical vertice
 extern int Neigh_p;     //point the next neighbour move
+extern int jishuqi;
 
 extern move_node * Neighbourhood; //store the neighbourhood move
 extern move_node best; //store the best move
 
 extern FILE * fp;
 
+void init_tabu_list(void);
+//initialize tabu list
+void reduce_tabu_list(void);
+//reduce the no_zero number
 int judge(void);
 //judge that if the graph coloring is legal
 int judge_man(int,int);
 //calculate the number of the color matrix
 int move(int,int,int);
 //move a vertice to another color and move it back and give the f(s) depend on the last int and remake the color matrix
-void calculate(void);
+int calculate(void);
 //calculate f(s)
 void solution(void);
 void generate_init_color_num(void);

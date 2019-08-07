@@ -2,7 +2,6 @@
 
 int move(int v,int a,int x) //v->vertice a->future color x->mode
 {
-    int color_store;
     int Fs_store;
     switch(x)
     {
@@ -13,15 +12,12 @@ int move(int v,int a,int x) //v->vertice a->future color x->mode
         }
         case 1:          //give the f(s) after move and move back
         {
-            color_store=vertice_color[v];
-            vertice_color[v]=a;
-            calculate();
-            Fs_store=optimize_num;
-            move(v,color_store,0);
+            Fs_store=optimize_num+C_Matrix[v][a]-C_Matrix[v][vertice_color[v]];
             return Fs_store;
         }
-        case 2:         //reproduce the color matrix
+        case 2:         //reproduce the color matrix,make tabulist
         {
+            Tabu_list[v][vertice_color[v]]=rand()%Tabu_Length+1;
             re_color_matrix(v,a);
             vertice_color[v]=a;
             return 0;

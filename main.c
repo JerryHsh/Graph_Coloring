@@ -10,12 +10,15 @@ int vertice_color[Vertices_Num];       //distribution color
 int critical_vertice[Max_Vertice_Num];  //store the critical vertice
 
 int ** C_Matrix;  //store color matrix
+int ** Tabu_list; //store the Tabu_list
 int color_num;      //color num that is been used
 int init_color_num; //first  color_num
 int optimize_num;   //store f(s)
 int Critical_v_p;   //point to the next critical vertice
 int Neigh_p;     //point the next neighbour move
 int step;        //store the step of move
+int jishuqi;     //store the calculate num
+int best_ever;      //store the best f(s)
 
 move_node best;
 move_node * Neighbourhood; //store the neighbourhood move
@@ -24,6 +27,7 @@ FILE * fp;
 
 int main()
 {
+    jishuqi=0;
     step=0;
     srand(time(NULL));
     fp=fopen("./graph.txt","r");
@@ -32,6 +36,7 @@ int main()
     print_graph();
     define_critical_array();
     C_Matrix=(int **)malloc(Vertices_Num*sizeof(int *));
+    Tabu_list=(int **)malloc(Vertices_Num*sizeof(int *));
     test();
     /*
     Critical_v_p=0;
@@ -62,8 +67,9 @@ void solution(void)
     color_matrix();
 }
 
-void calculate(void)         //correct
+int calculate(void)         //correct
 {
+    //printf("The calculator is been used for the %d times\n",++jishuqi);
     int i,j;
     for(i=0,optimize_num=0;i<Vertices_Num-1;i++)
     {
@@ -73,6 +79,7 @@ void calculate(void)         //correct
             optimize_num++;
         }
     }
+    return optimize_num;
 }
 
 

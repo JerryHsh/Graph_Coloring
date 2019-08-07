@@ -29,7 +29,6 @@ void judge_neighbourhood(void)
     free_neighbour();
     make_neighbourhood_move();
     int i;
-    //int flag=0; //store f(s)
     for(i=0;i<Neigh_p;i++)
     {
         if(i==0)
