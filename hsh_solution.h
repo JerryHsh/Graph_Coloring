@@ -4,8 +4,8 @@
 #include<stdlib.h>
 
 #define Max_Vertice_Num 1000
-#define Max_Step 1000
-#define Tabu_Length 10
+#define Max_Step 2000
+#define Tabu_Length 50
 
 typedef struct move_neighbour   //store the neighbour move
 {
