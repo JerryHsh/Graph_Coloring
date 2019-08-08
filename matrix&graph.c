@@ -98,3 +98,43 @@ void rand_color(void)
         vertice_color[i]=rand()%color_num;
     }
 }
+
+void init_graph(void)
+{
+    graph=(int **)malloc(Vertices_Num*sizeof(int *));
+    int i;
+    for(i=0;i<Vertices_Num;i++)
+    {
+        graph[i]=(int *)malloc(Vertices_Num*sizeof(int));
+    }
+    int j;
+    for(i=0;i<Vertices_Num;i++)
+    {
+        for(j=0;j<Vertices_Num;j++)
+        graph[i][j]=0;
+    }
+}
+
+void init_vertice_color_array(void)
+{
+    vertice_color=(int *)malloc(Vertices_Num*sizeof(int));
+}
+
+void input(void)
+{
+    int i,p,q,e;
+    printf("Input the vertice number:\n");
+    scanf("%d",&Vertices_Num);
+    printf("Input the edges number:\n");
+    scanf("%d",&e);
+    init_graph();
+    init_vertice_color_array();
+    printf("Input the adjacent vertice:\n");
+    for(i=0;i<e;i++)
+    {
+        printf("No%d:\n",i+1);
+        scanf("%d%d",&p,&q);
+        graph[p-1][q-1]=1;
+        graph[q-1][p-1]=1;
+    }
+}

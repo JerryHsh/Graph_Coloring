@@ -3,7 +3,6 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-#define Vertices_Num 10
 #define Max_Vertice_Num 100
 #define Max_Step 500
 #define Tabu_Length 10
@@ -15,12 +14,13 @@ typedef struct move_neighbour   //store the neighbour move
     int fs; //represent fs
 }move_node;
 
-extern int graph[Vertices_Num][Vertices_Num];  //store the graph
-extern int vertice_color[Vertices_Num];       //distribution color
 extern int critical_vertice[Max_Vertice_Num];
 extern int ** C_Matrix;  //store color matrix
+extern int ** graph; //store the graph
+extern int * vertice_color;
 extern int ** Tabu_list; //store the Tabu_list
 
+extern int Vertices_Num;
 extern int best_ever;   //store the best f(s)
 extern int color_num;      //color num that is been used
 extern int step;
@@ -36,6 +36,8 @@ extern move_node best; //store the best move
 
 extern FILE * fp;
 
+void init_graph(void);
+//initialize the graph
 void init_tabu_list(void);
 //initialize tabu list
 void reduce_tabu_list(void);

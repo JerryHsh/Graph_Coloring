@@ -5,12 +5,12 @@
 //color can be 0 to color_num-1
 //vertice can be 0 to vertice_num-1
 
-int graph[Vertices_Num][Vertices_Num];  //store the graph
-int vertice_color[Vertices_Num];       //distribution color
 int critical_vertice[Max_Vertice_Num];  //store the critical vertice
 
+int ** graph; //store the graph
 int ** C_Matrix;  //store color matrix
 int ** Tabu_list; //store the Tabu_list
+int *vertice_color; //store vertice_color
 int color_num;      //color num that is been use
 int init_color_num; //first  color_num
 int optimize_num;   //store f(s)
@@ -20,6 +20,7 @@ int step;        //store the step of move
 int jishuqi;     //store the calculate num
 int best_ever;      //store the best f(s)
 int depth;            //store the time of changing number of color
+int Vertices_Num;
 
 move_node best;
 move_node * Neighbourhood; //store the neighbourhood move
@@ -30,15 +31,13 @@ int main()
 {
     //printf("Input vertice num:\n");
     //scanf("%d",&Vertices_Num);
+    input();
     depth=0;
     jishuqi=0;
     color_num=Vertices_Num;
     rand_color();
     print_color();
     srand(time(NULL));
-    fp=fopen("./graph.txt","r");
-    make_graph();
-    fclose(fp);
     print_graph();
     define_critical_array();
     C_Matrix=(int **)malloc(Vertices_Num*sizeof(int *));
@@ -48,17 +47,7 @@ int main()
         depth++;
         color_num--;
     }
-    /*
-    Critical_v_p=0;
-    Neigh_p=0;
-    generate_init_color_num();
-    do
-    {
-        color_num--;
-        solution();
-    } while (judge());
-    printf("The needed num is %d",++color_num);
-    */
+    printf("***The solution color number is %d\n",color_num+1);
     return 0;
 }
 
