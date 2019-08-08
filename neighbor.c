@@ -31,51 +31,27 @@ void judge_neighbourhood(void)
     int i;
     for(i=0;i<Neigh_p;i++)
     {
-        if(i==0)
+        if(i==0&&(!Tabu_list[Neighbourhood[i].v][Neighbourhood[i].c]))
+            best=Neighbourhood[i];
+        else if (!Tabu_list[Neighbourhood[i].v][Neighbourhood[i].c])
         {
-            if(!Tabu_list[Neighbourhood[i].v][Neighbourhood[i].c])
-            {
-                best_nt.fs=Neighbourhood[i].fs;
-                best_nt.c=Neighbourhood[i].c;
-                best_nt.v=Neighbourhood[i].v;
-            }
-            else
-            {
-                best_t.fs=Neighbourhood[i].fs;
-                best_t.c=Neighbourhood[i].c;
-                best_t.v=Neighbourhood[i].v;
-            }
+            if(best.fs>Neighbourhood[i].fs)
+                best=Neighbourhood[i];
         }
-        else
+    }
+    if(best.fs<best_ever)
+    {
+        best_ever=best.fs;
+    }
+    for(i=0;i<Neigh_p;i++)
+    {
+        if(Tabu_list[Neighbourhood[i].v][Neighbourhood[i].c])
         {
-            if(!Tabu_list[Neighbourhood[i].v][Neighbourhood[i].c])
+            if(Neighbourhood[i].fs<best_ever)
             {
-                if(best_nt.fs>Neighbourhood[i].fs)
-                { 
-                    best_nt.fs=Neighbourhood[i].fs;
-                    best_nt.c=Neighbourhood[i].c;
-                    best_nt.v=Neighbourhood[i].v;
-                }
+                best=Neighbourhood[i];
+                best_ever=best.fs;
             }
-            else
-            {
-                if(best_t.fs>Neighbourhood[i].fs)
-                { 
-                    best_t.fs=Neighbourhood[i].fs;
-                    best_t.c=Neighbourhood[i].c;
-                    best_t.v=Neighbourhood[i].v;
-                }
-            }
-        }
-        if(best_t.fs<best_ever)
-        {
-            best=best_t;
-            best_ever=best_t.fs;
-        }
-        else 
-        {
-            best=best_nt;
-            best_ever=best_nt.fs;
         }
     }
 }

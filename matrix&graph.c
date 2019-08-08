@@ -74,7 +74,7 @@ void reduce_tabu_list(void)
         for(j=0;j<color_num;j++)
         {
             if(Tabu_list[i][j]!=0)
-                Tabu_list[i][j]--;
+                --Tabu_list[i][j];
         }
     }
 }

@@ -33,8 +33,6 @@ extern int jishuqi;
 
 extern move_node * Neighbourhood; //store the neighbourhood move
 extern move_node best; //store the best move
-extern move_node best_nt;//best move outside tabu_list
-extern move_node best_t;//best move inside tabu_list
 
 extern FILE * fp;
 

@@ -22,8 +22,6 @@ int best_ever;      //store the best f(s)
 int depth;            //store the time of changing number of color
 
 move_node best;
-move_node best_nt;   //out of tabu_list
-move_node best_t;    //inside tabu list
 move_node * Neighbourhood; //store the neighbourhood move
 
 FILE * fp;
