@@ -2,9 +2,9 @@
 
 int test(void)
 {
-    fprintf(f_log,"\n***Color_num is %d\n",color_num);
+    //fprintf(f_log,"\n***Color_num is %d\n",color_num);
     rand_color();
-    print_color();
+    //print_color();
     int i;
     step=0;
     best.fs=1;
@@ -25,14 +25,14 @@ int test(void)
     {
     ++step;
     reduce_tabu_list();
-    fprintf(f_log,"This is the %d step\n",step);
+    //fprintf(f_log,"This is the %d step\n",step);
     //print_matrix();
     make_critical_vertice();
     //print_critical_vertice();
     judge_neighbourhood();
-    print_neibourhood();
+    //print_neibourhood();
     move(best.v,best.c,2);
-    print_tabu_list();
+    //print_tabu_list();
     optimize_num=best.fs;
     }
     if(!optimize_num)
