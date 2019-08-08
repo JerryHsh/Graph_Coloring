@@ -1,4 +1,4 @@
-## Tabu search
+## Tabu search Graph Coloring
 
 - Input style
 
