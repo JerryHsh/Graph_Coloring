@@ -2,7 +2,7 @@
 
 int test(void)
 {
-    printf("\n***Color_num is %d\n",color_num);
+    fprintf(f_log,"\n***Color_num is %d\n",color_num);
     rand_color();
     print_color();
     int i;
@@ -25,14 +25,14 @@ int test(void)
     {
     ++step;
     reduce_tabu_list();
-    //printf("This is the %d step\n",step);
+    fprintf(f_log,"This is the %d step\n",step);
     //print_matrix();
     make_critical_vertice();
     //print_critical_vertice();
     judge_neighbourhood();
-    //print_neibourhood();
+    print_neibourhood();
     move(best.v,best.c,2);
-    //print_tabu_list();
+    print_tabu_list();
     optimize_num=best.fs;
     }
     if(!optimize_num)
@@ -42,11 +42,8 @@ int test(void)
     }
     else
     {
-        printf("step is %d \n",step);
-        printf("the function is been used for %d times\n",jishuqi);
+        fprintf(f_log,"step is %d \n",step);
+        fprintf(f_log,"the function is been used for %d times\n",jishuqi);
         return 0;
     }
-    
-
-    // there is possibility that optimize num isn't update
 }

@@ -34,8 +34,13 @@ extern int jishuqi;
 extern move_node * Neighbourhood; //store the neighbourhood move
 extern move_node best; //store the best move
 
-extern FILE * fp;
+extern FILE * fp,*f_log;
 
+
+void input(void);
+//input the graph
+void init_vertice_color_array(void);
+//initialize  vertice color array
 void init_graph(void);
 //initialize the graph
 void init_tabu_list(void);

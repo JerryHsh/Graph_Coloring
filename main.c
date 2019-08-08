@@ -25,18 +25,15 @@ int Vertices_Num;
 move_node best;
 move_node * Neighbourhood; //store the neighbourhood move
 
-FILE * fp;
+FILE * fp,*f_log;
 
 int main()
 {
-    //printf("Input vertice num:\n");
-    //scanf("%d",&Vertices_Num);
+    f_log=fopen("./log.txt","w");
     input();
     depth=0;
     jishuqi=0;
     color_num=Vertices_Num;
-    rand_color();
-    print_color();
     srand(time(NULL));
     print_graph();
     define_critical_array();
@@ -47,7 +44,7 @@ int main()
         depth++;
         color_num--;
     }
-    printf("***The solution color number is %d\n",color_num+1);
+    fclose(f_log);
     return 0;
 }
 

@@ -2,17 +2,19 @@
 
 void print_graph(void)          //correct
 {
+    fp=fopen("./graph.txt","w+");
     int i,j;
-    printf("Graph:\n");
+    fprintf(fp,"Graph:\n");
     for(i=0;i<Vertices_Num;i++)
     {
-        putchar('\n');
+        fputc('\n',fp);
         for(j=0;j<Vertices_Num;j++)
         {
-            printf("%d ",graph[i][j]);
+            fprintf(fp,"%d ",graph[i][j]);
         }
     }
-    putchar('\n');
+    fputc('\n',fp);
+    fclose(fp);
 }
 
 
@@ -33,12 +35,12 @@ void print_matrix(void)         //correct
 void print_color(void)
 {
     int i;
-    printf("color\n");
+    fprintf(f_log,"color\n");
     for(i=0;i<Vertices_Num;i++)
     {
-        printf("%d ",vertice_color[i]);
+        fprintf(f_log,"%d ",vertice_color[i]);
     }
-    putchar('\n');
+    fputc('\n',f_log);
 }
 
 void print_critical_vertice(void)
@@ -56,44 +58,47 @@ void print_critical_vertice(void)
 void print_neibourhood(void)
 {
     int i;
-    printf("This is the neiborhood\n");
+    fprintf(f_log,"This is the neiborhood\n");
     for(i=0;i<Critical_v_p*(color_num-1);i++)
     {
-        printf("No %d,vertice is %d,color is %d,f(s) is %d\n",i+1,Neighbourhood[i].v,Neighbourhood[i].c,Neighbourhood[i].fs);
+        fprintf(f_log,"No %d,vertice is %d,color is %d,f(s) is %d\n",i+1,Neighbourhood[i].v,Neighbourhood[i].c,Neighbourhood[i].fs);
     }
-    printf("The best move: vertice is %d,color is %d,f(s)is %d\n",best.v,best.c,best.fs);
+    fprintf(f_log,"The best move: vertice is %d,color is %d,f(s)is %d\n",best.v,best.c,best.fs);
 }
 
 void print_answer(void)
 {
+    fp=fopen("./answer.txt","w");
+    fprintf(fp,"The solution color number is %d\n",color_num);
     int i,j;
-    putchar('\n');
+    fputc('\n',fp);
     for(i=0;i<color_num;i++)
     {
-        printf("color %d color:",i+1);
+        fprintf(fp,"color %d color:",i+1);
         for(j=0;j<Vertices_Num;j++)
         {
             if(vertice_color[j]==i)
             {
-                printf("%d;",j+1);
+                fprintf(fp,"%d;",j+1);
             }
         }
-        putchar('\n');
+        fputc('\n',fp);
     }
-        printf("\nf(s)=%d\nstep is %d\n",optimize_num,step);
-        printf("the function is been used for %d times\n",jishuqi);
+        //fprintf(fp,"\nf(s)=%d\nstep is %d\n",optimize_num,step);
+        //fprintf(fp,"the function is been used for %d times\n",jishuqi);
+    fclose(fp);
 }
 
 void print_tabu_list(void)
 {
     int i,j;
-    printf("This is Tabu list\n");
+    fprintf(f_log,"This is Tabu list\n");
     for(i=0;i<Vertices_Num;i++)
     {
         for(j=0;j<color_num;j++)
         {
-            printf("%d ",Tabu_list[i][j]);
+           fprintf(f_log,"%d ",Tabu_list[i][j]);
         }
-        putchar('\n');
+        fputc('\n',f_log);
     }
 }

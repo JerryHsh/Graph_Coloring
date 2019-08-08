@@ -58,7 +58,7 @@ void re_color_matrix(int v,int a)  //remake colormatrix depend on the move
     }
 }
 
-void init_tabu_list(void)  
+void init_tabu_list(void)
 {
     int i,j;
     for(i=0;i<Vertices_Num;i++)
@@ -123,18 +123,21 @@ void init_vertice_color_array(void)
 void input(void)
 {
     int i,p,q,e;
-    printf("Input the vertice number:\n");
-    scanf("%d",&Vertices_Num);
-    printf("Input the edges number:\n");
-    scanf("%d",&e);
+    //printf("Input the vertice number:\n");
+    FILE * f1;
+    f1=fopen("question.txt","r");
+    fscanf(f1,"%d",&Vertices_Num);
+    //printf("Input the edges number:\n");
+    fscanf(f1,"%d",&e);
     init_graph();
     init_vertice_color_array();
-    printf("Input the adjacent vertice:\n");
+    //printf("Input the adjacent vertice:\n");
     for(i=0;i<e;i++)
     {
-        printf("No%d:\n",i+1);
-        scanf("%d%d",&p,&q);
+        //printf("No%d:\n",i+1);
+        fscanf(f1,"%d%d",&p,&q);
         graph[p-1][q-1]=1;
         graph[q-1][p-1]=1;
     }
+    fclose(f1);
 }
