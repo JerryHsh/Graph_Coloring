@@ -11,7 +11,7 @@ int critical_vertice[Max_Vertice_Num];  //store the critical vertice
 
 int ** C_Matrix;  //store color matrix
 int ** Tabu_list; //store the Tabu_list
-int color_num;      //color num that is been used
+int color_num;      //color num that is been use
 int init_color_num; //first  color_num
 int optimize_num;   //store f(s)
 int Critical_v_p;   //point to the next critical vertice
@@ -62,23 +62,10 @@ int main()
     return 0;
 }
 
-void solution(void)
-{
-    free_matrix();              //clear the last array
-    int i;
-    for(i=0;i<Vertices_Num;i++)
-    {
-        vertice_color[i]=rand()%color_num;    //give color randomly
-    }
-    for(i=0;i<color_num;i++)
-    {
-        C_Matrix[i]=(int *)malloc(color_num*sizeof(int));     //reproduce the array
-    }
-    color_matrix();
-}
 
 int calculate(void)         //correct
 {
+    ++jishuqi;
     //printf("The calculator is been used for the %d times\n",++jishuqi);
     int i,j;
     for(i=0,optimize_num=0;i<Vertices_Num-1;i++)

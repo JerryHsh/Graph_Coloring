@@ -80,7 +80,8 @@ void print_answer(void)
         }
         putchar('\n');
     }
-        printf("\nf(s)=%d\n",optimize_num);
+        printf("\nf(s)=%d\nstep is %d\n",optimize_num,step);
+        printf("the calculate is been used for %d times",jishuqi);
 }
 
 void print_tabu_list(void)

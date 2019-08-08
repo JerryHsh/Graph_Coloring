@@ -2,7 +2,9 @@
 
 int test(void)
 {
+    printf("\nColor_num is %d\n",color_num);
     rand_color();
+    print_color();
     int i;
     step=0;
     if(depth)
@@ -25,11 +27,11 @@ int test(void)
         C_Matrix[i]=(int *)malloc(color_num*sizeof(int));
         Tabu_list[i]=(int *)malloc(color_num*sizeof(int));
     }
-    init_tabu_list();
     putchar('\n');
+    init_tabu_list();
     color_matrix();
     best_ever=calculate();
-    while((optimize_num!=0)&&(step<=Max_Step))
+    while((calculate()!=0)&&(step<=Max_Step))
     {
     ++step;
     reduce_tabu_list();
@@ -43,16 +45,19 @@ int test(void)
     //print_tabu_list();
     optimize_num=best.fs;
     }
-    if(!calculate())
+    if(!optimize_num)
     {
-        printf("\nColor_num is %d\n",color_num);
-        print_color();
         print_answer();
         return 1;
     }
     else
     {
+        printf("step is %d \n",step);
+        printf("the calculate is been used for %d times",jishuqi);
+
         return 0;
     }
     
+
+    // there is possibility that optimize num isn't update
 }

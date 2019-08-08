@@ -6,7 +6,7 @@
 #define Vertices_Num 9
 #define Max_Vertice_Num 100
 #define Max_Step 50
-#define Tabu_Length 20
+#define Tabu_Length 10
 
 typedef struct move_neighbour   //store the neighbour move
 {
@@ -50,7 +50,6 @@ int move(int,int,int);
 //move a vertice to another color and move it back and give the f(s) depend on the last int and remake the color matrix
 int calculate(void);
 //calculate f(s)
-void solution(void);
 void generate_init_color_num(void);
 void color_matrix(void);
 //make vajacent color matrix
