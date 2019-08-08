@@ -28,6 +28,8 @@ FILE * fp;
 
 int main()
 {
+    //printf("Input vertice num:\n");
+    //scanf("%d",&Vertices_Num);
     depth=0;
     jishuqi=0;
     color_num=Vertices_Num;
@@ -63,7 +65,7 @@ int main()
 
 int calculate(void)         //correct
 {
-    ++jishuqi;
+    //++jishuqi;
     //printf("The calculator is been used for the %d times\n",++jishuqi);
     int i,j;
     for(i=0,optimize_num=0;i<Vertices_Num-1;i++)

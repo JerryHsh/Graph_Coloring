@@ -3,9 +3,9 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-#define Vertices_Num 9
+#define Vertices_Num 10
 #define Max_Vertice_Num 100
-#define Max_Step 50
+#define Max_Step 500
 #define Tabu_Length 10
 
 typedef struct move_neighbour   //store the neighbour move

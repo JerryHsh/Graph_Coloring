@@ -2,6 +2,7 @@
 
 void color_matrix(void)     //make color matrix   //correct
 {
+    //++jishuqi;
     int i,j;
     for(i=0;i<Vertices_Num;i++)
     {
@@ -43,6 +44,7 @@ void make_graph(void)           //correct
 void re_color_matrix(int v,int a)  //remake colormatrix depend on the move
 {                        //v means vertice ,a means future color
     //printf("The function is been used for the %d times\n",++jishuqi);
+    ++jishuqi;
     int i;
     for(i=0;i<Vertices_Num;i++)
     {

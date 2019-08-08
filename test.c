@@ -25,7 +25,7 @@ int test(void)
     {
     ++step;
     reduce_tabu_list();
-    //printf("\nThis is the %d step\n",++step);
+    //printf("This is the %d step\n",step);
     //print_matrix();
     make_critical_vertice();
     //print_critical_vertice();
@@ -43,7 +43,7 @@ int test(void)
     else
     {
         printf("step is %d \n",step);
-        printf("the calculate is been used for %d times\n",jishuqi);
+        printf("the function is been used for %d times\n",jishuqi);
         return 0;
     }
     

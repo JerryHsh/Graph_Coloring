@@ -81,7 +81,7 @@ void print_answer(void)
         putchar('\n');
     }
         printf("\nf(s)=%d\nstep is %d\n",optimize_num,step);
-        printf("the calculate is been used for %d times\n",jishuqi);
+        printf("the function is been used for %d times\n",jishuqi);
 }
 
 void print_tabu_list(void)
