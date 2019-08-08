@@ -2,8 +2,7 @@
 
 int test(void)
 {
-    printf("\nColor_num is %d\n",color_num);
-    putchar('\n');
+    printf("\n***Color_num is %d\n",color_num);
     rand_color();
     print_color();
     int i;
@@ -44,7 +43,7 @@ int test(void)
     else
     {
         printf("step is %d \n",step);
-        printf("the calculate is been used for %d times",jishuqi);
+        printf("the calculate is been used for %d times\n",jishuqi);
         return 0;
     }
     

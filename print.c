@@ -3,7 +3,7 @@
 void print_graph(void)          //correct
 {
     int i,j;
-    printf("\nGraph:\n");
+    printf("Graph:\n");
     for(i=0;i<Vertices_Num;i++)
     {
         putchar('\n');
@@ -19,7 +19,7 @@ void print_graph(void)          //correct
 void print_matrix(void)         //correct
 {
     int i,j;
-    printf("\nColor_matrix:\n");
+    printf("Color_matrix:\n");
     for(i=0;i<Vertices_Num;i++)
     {
         for(j=0;j<color_num;j++)
@@ -33,7 +33,7 @@ void print_matrix(void)         //correct
 void print_color(void)
 {
     int i;
-    printf("\ncolor\n");
+    printf("color\n");
     for(i=0;i<Vertices_Num;i++)
     {
         printf("%d ",vertice_color[i]);
@@ -44,7 +44,7 @@ void print_color(void)
 void print_critical_vertice(void)
 {
     int i;
-    printf("\nThis is the critical vertice\n");
+    printf("This is the critical vertice\n");
     printf("Number is %d\n",Critical_v_p);
     for(i=0;i<Critical_v_p;i++)
     {
@@ -56,7 +56,7 @@ void print_critical_vertice(void)
 void print_neibourhood(void)
 {
     int i;
-    printf("\nThis is the neiborhood\n");
+    printf("This is the neiborhood\n");
     for(i=0;i<Critical_v_p*(color_num-1);i++)
     {
         printf("No %d,vertice is %d,color is %d,f(s) is %d\n",i+1,Neighbourhood[i].v,Neighbourhood[i].c,Neighbourhood[i].fs);
@@ -81,13 +81,13 @@ void print_answer(void)
         putchar('\n');
     }
         printf("\nf(s)=%d\nstep is %d\n",optimize_num,step);
-        printf("the calculate is been used for %d times",jishuqi);
+        printf("the calculate is been used for %d times\n",jishuqi);
 }
 
 void print_tabu_list(void)
 {
     int i,j;
-    printf("\nThis is Tabu list\n");
+    printf("This is Tabu list\n");
     for(i=0;i<Vertices_Num;i++)
     {
         for(j=0;j<color_num;j++)
