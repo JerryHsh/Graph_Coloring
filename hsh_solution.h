@@ -4,8 +4,7 @@
 #include<stdlib.h>
 
 #define Max_Vertice_Num 1000
-#define Max_Step 2000
-#define Tabu_Length 50
+#define Max_Step 10000
 
 typedef struct move_neighbour   //store the neighbour move
 {
@@ -20,6 +19,7 @@ extern int ** graph; //store the graph
 extern int * vertice_color;
 extern int ** Tabu_list; //store the Tabu_list
 
+extern int Tabu_Length;
 extern int Vertices_Num;
 extern int best_ever;   //store the best f(s)
 extern int color_num;      //color num that is been used
@@ -36,6 +36,8 @@ extern move_node best; //store the best move
 
 extern FILE * fp,*f_log;
 
+void solution(void);
+//quicker way
 void input(void);
 //input the graph
 void init_vertice_color_array(void);

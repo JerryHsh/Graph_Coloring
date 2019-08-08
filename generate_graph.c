@@ -9,7 +9,7 @@ int main()
     puts("Input vertice num:");
     scanf("%d",&vertice_num);
     FILE *fp;
-    fp=fopen("./question1.txt","w");
+    fp=fopen("./question.txt","w");
     int i,j;
     fprintf(fp,"                       ");
     for(i=0;i<vertice_num-1;i++)

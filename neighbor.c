@@ -47,7 +47,7 @@ void judge_neighbourhood(void)
     {
         if(Tabu_list[Neighbourhood[i].v][Neighbourhood[i].c])
         {
-            if(Neighbourhood[i].fs<best_ever)
+            if(Neighbourhood[i].fs<((best_ever>2)?(best_ever-2):1))
             {
                 best=Neighbourhood[i];
                 best_ever=best.fs;

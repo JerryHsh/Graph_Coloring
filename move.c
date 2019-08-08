@@ -25,3 +25,6 @@ int move(int v,int a,int x) //v->vertice a->future color x->mode
         }
     }
 }
+
+
+

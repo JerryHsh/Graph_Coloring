@@ -21,6 +21,7 @@ int jishuqi;     //store the calculate num
 int best_ever;      //store the best f(s)
 int depth;            //store the time of changing number of color
 int Vertices_Num;
+int Tabu_Length;
 
 move_node best;
 move_node * Neighbourhood; //store the neighbourhood move
@@ -39,11 +40,7 @@ int main()
     define_critical_array();
     C_Matrix=(int **)malloc(Vertices_Num*sizeof(int *));
     Tabu_list=(int **)malloc(Vertices_Num*sizeof(int *));
-    while(test())
-    {
-        depth++;
-        color_num--;
-    }
+    solution();
     fclose(f_log);
     return 0;
 }
@@ -63,5 +60,32 @@ int calculate(void)         //correct
         }
     }
     return optimize_num;
+}
+
+void solution(void)
+{
+    int up,low;
+    up=Vertices_Num;
+    low=0;
+    //Tabu_Length=10;
+    while(low<up)
+    {
+        color_num=(low+up)/2+1;
+        Tabu_Length=((Vertices_Num/10)>10)?((color_num<(Vertices_Num/4))?(Vertices_Num/5):Vertices_Num/10):10;
+        if(test())
+        {
+            up=color_num;
+        }
+        else
+        {
+            low=color_num;
+        }
+        depth++;
+    }
+    while(test())
+    {
+        depth++;
+        color_num--;
+    } 
 }
 
