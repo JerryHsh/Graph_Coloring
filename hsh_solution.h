@@ -36,7 +36,8 @@ extern move_node best; //store the best move
 
 extern FILE * fp,*f_log;
 
-
+void solution(void);
+//quicker way
 void input(void);
 //input the graph
 void init_vertice_color_array(void);
