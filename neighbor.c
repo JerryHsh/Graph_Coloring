@@ -84,6 +84,7 @@ void judge_neighbourhood_test(void)
     {
         best=best_store[rand()%best_store_p];
     }
+    //fprintf(f_log,"%d   %d\n",best_store_p,tabu_store_p);
 }
 
 void judge_neighbourhood(void)

@@ -39,6 +39,14 @@ int solution(int a)
         }
         fprintf(f_log,"debug*******************************************\n");
         flag1=color_num;
+        int i;
+        for(i=0;i<5;i++)
+        {
+            if(test())
+                break;
+        }
+        if(i==5)
+            flag1++;
         while(test())
         {
             flag1=color_num;
