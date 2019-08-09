@@ -24,6 +24,8 @@ int Vertices_Num;
 int Tabu_Length;
 int flag1;
 
+clock_t start,end,mid;
+
 move_node best;
 move_node * Neighbourhood; //store the neighbourhood move
 
@@ -45,8 +47,10 @@ int main()
     int i,j;
     puts("Input the loop times depend on how long you can wait");
     scanf("%d",&j);
+    start=clock();
     for(i=0;i<j;i++)
     {
+        mid=clock();
         fprintf(f_log,"No %d turn**********************\n",i+1);
         //note=solution(note);
         if(!i)
@@ -59,7 +63,8 @@ int main()
             if(solution(note-1))
                 note=flag1;
         }
-        
+        end=clock();
+        fprintf(f_log,"No %d turn last %lf\n\n",i+1,end-mid);
     }
     free_matrix();
     free_tabu_list();

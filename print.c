@@ -87,6 +87,8 @@ void print_answer(void)
     }
         fprintf(f_log,"step is %d\n",step);
         fprintf(f_log,"the function is been used for %d times\n",jishuqi);
+        end=clock();
+        fprintf(fp,"The solution last %lf\n",end-start);
     fclose(fp);
 }
 

@@ -4,7 +4,7 @@
 	<stdlib.h>
 	"hsh_solution.h"
 
-1565309878 d:\code\c_prog\graph_coloring\hsh_solution.h
+1565324660 d:\code\c_prog\graph_coloring\hsh_solution.h
 	<stdio.h>
 	<stdlib.h>
 
@@ -32,5 +32,8 @@
 	"hsh_solution.h"
 
 1565283387 source:d:\code\c_prog\graph_coloring\move.c
+	"hsh_solution.h"
+
+1565323295 source:d:\code\c_prog\graph_coloring\solution.c
 	"hsh_solution.h"
 

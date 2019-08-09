@@ -2,6 +2,7 @@
 #define HSH_SOLUTION_H_INCLUDED
 #include<stdio.h>
 #include<stdlib.h>
+#include<time.h>
 
 #define Max_Vertice_Num 1000
 #define Max_Step 10000
@@ -36,6 +37,8 @@ extern move_node * Neighbourhood; //store the neighbourhood move
 extern move_node best; //store the best move
 
 extern FILE * fp,*f_log;
+
+extern clock_t start,end,mid;
 
 int solution(int);
 //quicker way
