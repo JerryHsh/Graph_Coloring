@@ -2,8 +2,8 @@
 
 void make_critical_vertice(void) //make the array store critical vertice
 {
-    free_critical_vertice();
     int i,j;
+    free_critical_vertice();
     for(i=0;i<Vertices_Num;i++)
     {
         for(j=0;j<Vertices_Num;j++)
