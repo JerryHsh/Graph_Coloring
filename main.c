@@ -22,6 +22,7 @@ int best_ever;      //store the best f(s)
 int depth;            //store the time of changing number of color
 int Vertices_Num;
 int Tabu_Length;
+int flag1;
 
 move_node best;
 move_node * Neighbourhood; //store the neighbourhood move
@@ -30,6 +31,7 @@ FILE * fp,*f_log;
 
 int main()
 {
+    int note=0;   //survalance solution
     f_log=fopen("./log.txt","w");
     input();
     depth=0;
@@ -40,7 +42,17 @@ int main()
     define_critical_array();
     C_Matrix=(int **)malloc(Vertices_Num*sizeof(int *));
     Tabu_list=(int **)malloc(Vertices_Num*sizeof(int *));
-    solution();
+    int i;
+    for(i=0;i<10;i++)
+    {
+        fprintf(f_log,"***********new turn:\n");
+        note=solution(note);
+    }
+    free_matrix();
+    free_tabu_list();
+    free(C_Matrix);
+    free(Tabu_list);
+    free(Neighbourhood);
     fclose(f_log);
     return 0;
 }
@@ -62,30 +74,51 @@ int calculate(void)         //correct
     return optimize_num;
 }
 
-void solution(void)
+int solution(int a)
 {
-    int up,low;
-    up=Vertices_Num;
-    low=0;
-    //Tabu_Length=10;
-    while(low<up)
+    if(!a)
     {
-        color_num=(low+up)/2+1;
-        Tabu_Length=((Vertices_Num/10)>10)?((color_num<(Vertices_Num/4))?(Vertices_Num/5):Vertices_Num/10):10;
-        if(test())
+        int up,low;
+        up=Vertices_Num;
+        low=0;
+        //Tabu_Length=10;
+        while(low<up)
         {
-            up=color_num;
+            color_num=(low+up)/2+1;
+            Tabu_Length=((Vertices_Num/10)>10)?((color_num<(Vertices_Num/4))?(Vertices_Num/5):Vertices_Num/10):10;
+            if(test())
+            {
+                up=color_num;
+            }
+            else
+            {
+                low=color_num;
+            }
+            depth++;
         }
-        else
+        flag1=color_num;
+        while(test())
         {
-            low=color_num;
+            flag1=color_num;
+            depth++;
+            color_num--;
         }
-        depth++;
+        return flag1;
     }
-    while(test())
+    else
     {
-        depth++;
-        color_num--;
-    } 
+        Tabu_Length=((Vertices_Num/10)>10)?((color_num<(Vertices_Num/4))?(Vertices_Num/5):Vertices_Num/10):10;
+        color_num=a;
+        flag1=color_num;
+        while(test())
+        {
+            flag1=color_num;
+            depth++;
+            color_num--;
+        }
+        return flag1;
+    }
 }
+
+//there is quicker way
 

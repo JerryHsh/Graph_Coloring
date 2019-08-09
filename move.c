@@ -23,8 +23,11 @@ int move(int v,int a,int x) //v->vertice a->future color x->mode
             vertice_color[v]=a;
             return 0;
         }
+        default:
+			break;
     }
 }
+
 
 
 

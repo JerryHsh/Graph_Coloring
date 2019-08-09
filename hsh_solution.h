@@ -23,20 +23,21 @@ extern int Tabu_Length;
 extern int Vertices_Num;
 extern int best_ever;   //store the best f(s)
 extern int color_num;      //color num that is been used
-extern int step;
+extern int step;           
 extern int init_color_num; //first  color_num
 extern int optimize_num;   //store f(s)
 extern int Critical_v_p;   //point to the next critical vertice
 extern int Neigh_p;     //point the next neighbour move
 extern int depth;           //times of changeing number of color
 extern int jishuqi;
+extern int flag1;
 
 extern move_node * Neighbourhood; //store the neighbourhood move
 extern move_node best; //store the best move
 
 extern FILE * fp,*f_log;
 
-void solution(void);
+int solution(int);
 //quicker way
 void input(void);
 //input the graph

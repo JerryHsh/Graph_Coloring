@@ -25,12 +25,8 @@ int test(void)
     {
     ++step;
     reduce_tabu_list();
-    //fprintf(f_log,"This is the %d step\n",step);
-    //print_matrix();
     make_critical_vertice();
-    //print_critical_vertice();
     judge_neighbourhood();
-    //print_neibourhood();
     move(best.v,best.c,2);
     //print_tabu_list();
     optimize_num=best.fs;
@@ -38,10 +34,11 @@ int test(void)
     if(!optimize_num)
     {
         print_answer();
-        return 1;
+        return color_num;
     }
     else
     {
+        fprintf(f_log,"**The solution color number is %d\n",color_num);
         fprintf(f_log,"step is %d \n",step);
         fprintf(f_log,"the function is been used for %d times\n",jishuqi);
         return 0;

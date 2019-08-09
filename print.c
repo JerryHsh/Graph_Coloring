@@ -70,11 +70,12 @@ void print_answer(void)
 {
     fp=fopen("./answer.txt","w");
     fprintf(fp,"The solution color number is %d\n",color_num);
+    fprintf(f_log,"**The solution color number is %d\n",color_num);
     int i,j;
     fputc('\n',fp);
     for(i=0;i<color_num;i++)
     {
-        fprintf(fp,"color %d color:",i+1);
+        fprintf(fp,"No %d color:",i+1);
         for(j=0;j<Vertices_Num;j++)
         {
             if(vertice_color[j]==i)
@@ -84,8 +85,8 @@ void print_answer(void)
         }
         fputc('\n',fp);
     }
-        //fprintf(fp,"\nf(s)=%d\nstep is %d\n",optimize_num,step);
-        //fprintf(fp,"the function is been used for %d times\n",jishuqi);
+        fprintf(f_log,"step is %d\n",step);
+        fprintf(f_log,"the function is been used for %d times\n",jishuqi);
     fclose(fp);
 }
 

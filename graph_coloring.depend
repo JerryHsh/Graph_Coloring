@@ -1,14 +1,14 @@
 # depslib dependency file v1.0
-1565278890 source:d:\code\c_prog\graph_coloring\main.c
+1565309931 source:d:\code\c_prog\graph_coloring\main.c
 	<stdio.h>
 	<stdlib.h>
 	"hsh_solution.h"
 
-1565280179 d:\code\c_prog\graph_coloring\hsh_solution.h
+1565309878 d:\code\c_prog\graph_coloring\hsh_solution.h
 	<stdio.h>
 	<stdlib.h>
 
-1565280177 source:d:\code\c_prog\graph_coloring\print.c
+1565309876 source:d:\code\c_prog\graph_coloring\print.c
 	"hsh_solution.h"
 
 1565080169 d:\code\c_prog\graph_coloring\print.h
@@ -16,7 +16,7 @@
 	<stdio.h>
 	<stdlib.h>
 
-1565274673 source:d:\code\c_prog\graph_coloring\test.c
+1565309879 source:d:\code\c_prog\graph_coloring\test.c
 	"hsh_solution.h"
 
 1565280174 source:d:\code\c_prog\graph_coloring\neighbor.c
@@ -31,6 +31,6 @@
 1565267419 source:d:\code\c_prog\graph_coloring\matrix&graph.c
 	"hsh_solution.h"
 
-1565278919 source:d:\code\c_prog\graph_coloring\move.c
+1565283387 source:d:\code\c_prog\graph_coloring\move.c
 	"hsh_solution.h"
 
