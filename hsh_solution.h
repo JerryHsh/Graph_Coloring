@@ -79,6 +79,7 @@ int test(void);
 //test each function
 void judge_neighbourhood(void);
 //find the best neighbourhood
+void judge_neighbourhood_test(void);
 void free_critical_vertice(void);
 //free the arry that store the critical vertice
 void define_critical_array(void);

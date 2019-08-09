@@ -26,7 +26,8 @@ int test(void)
     ++step;
     reduce_tabu_list();
     make_critical_vertice();
-    judge_neighbourhood();
+    //judge_neighbourhood();
+    judge_neighbourhood_test();
     move(best.v,best.c,2);
     //print_tabu_list();
     optimize_num=best.fs;
