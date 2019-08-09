@@ -32,9 +32,13 @@ extern int Neigh_p;     //point the next neighbour move
 extern int depth;           //times of changeing number of color
 extern int jishuqi;
 extern int flag1;
+extern int best_store_p; //range from 1~100
+extern int tabu_store_p; //range from 1~100
 
 extern move_node * Neighbourhood; //store the neighbourhood move
 extern move_node best; //store the best move
+extern move_node best_store[100];
+extern move_node tabu_store[100];
 
 extern FILE * fp,*f_log;
 

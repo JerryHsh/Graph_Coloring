@@ -24,6 +24,68 @@ void make_neighbourhood_move(void) //make the neighbourhood of it
     }
 }
 
+void judge_neighbourhood_test(void)
+{
+    best_store_p=0;
+    tabu_store_p=0;
+    free_neighbour();
+    make_neighbourhood_move();
+    int i;
+    for(i=0;i<Neigh_p;i++)
+    {
+        if(!Tabu_list[Neighbourhood[i].v][Neighbourhood[i].c])
+        {
+            if(!best_store_p)
+            {
+                best_store[best_store_p++]=Neighbourhood[i];
+            }
+            else if(Neighbourhood[i].fs<best_store[0].fs)
+            {
+                best_store_p=0;
+                best_store[best_store_p++]=Neighbourhood[i];
+            }
+            else if((Neighbourhood[i].fs==best_store[0].fs)&&(best_store_p<100))
+            {
+                best_store[best_store_p++]=Neighbourhood[i];
+            }
+        }
+        else
+        {
+            if(!tabu_store_p)
+            {
+                tabu_store[tabu_store_p++]=Neighbourhood[i];
+            }
+            else if(Neighbourhood[i].fs<tabu_store[0].fs)
+            {
+                tabu_store_p=0;
+                tabu_store[tabu_store_p++]=Neighbourhood[i];
+            }
+            else if((Neighbourhood[i].fs==tabu_store[0].fs)&&(tabu_store_p<100))
+            {
+                tabu_store[tabu_store_p++]=Neighbourhood[i];
+            }
+        } 
+    }
+    if(best_store[0].fs<best_ever)
+        best_ever=best_store[0].fs;
+    if(tabu_store_p!=0)
+    {
+        if(tabu_store[0].fs<best_ever)
+        {
+            best=tabu_store[rand()%tabu_store_p];
+            best_ever=tabu_store[0].fs;
+        }
+        else
+        {
+            best=best_store[rand()%best_store_p];
+        }
+    }
+    else
+    {
+        best=best_store[rand()%best_store_p];
+    }
+}
+
 void judge_neighbourhood(void)
 {
     free_neighbour();

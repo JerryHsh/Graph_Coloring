@@ -23,13 +23,17 @@ int depth;            //store the time of changing number of color
 int Vertices_Num;
 int Tabu_Length;
 int flag1;
+int best_store_p; //range from 1~100
+int tabu_store_p; //range from 1~100
 
 clock_t start,end,mid;
 
 double duration;
 
+move_node tabu_store[100]; //store the neighbourhood move  tabu
+move_node best_store[100]; //store the neighbourhood move non tabu
 move_node best;
-move_node * Neighbourhood; //store the neighbourhood move
+move_node * Neighbourhood; //store the neighbourhood move 
 
 FILE * fp,*f_log;
 
