@@ -69,6 +69,8 @@ int main()
         duration=(double)(end-mid)/CLK_TCK;
         fprintf(f_log,"No %d turn last %lf****************************************************************\n\n",i+1,duration);
     }
+    duration=(double)(end-start)/CLK_TCK;
+    fprintf(f_log,"****************************************************************************************************************\nThe time in total is %lf\n",duration);
     free_matrix();
     free_tabu_list();
     free(C_Matrix);
