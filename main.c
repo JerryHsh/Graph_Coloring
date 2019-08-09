@@ -42,11 +42,24 @@ int main()
     define_critical_array();
     C_Matrix=(int **)malloc(Vertices_Num*sizeof(int *));
     Tabu_list=(int **)malloc(Vertices_Num*sizeof(int *));
-    int i;
-    for(i=0;i<10;i++)
+    int i,j;
+    puts("Input the loop times depend on how long you can wait");
+    scanf("%d",&j);
+    for(i=0;i<j;i++)
     {
-        fprintf(f_log,"***********new turn:\n");
-        note=solution(note);
+        fprintf(f_log,"No %d turn**********************\n",i+1);
+        //note=solution(note);
+        if(!i)
+        {
+            solution(0);
+            note=flag1;
+        }
+        else
+        {
+            if(solution(note-1))
+                note=flag1;
+        }
+        
     }
     free_matrix();
     free_tabu_list();
@@ -56,69 +69,4 @@ int main()
     fclose(f_log);
     return 0;
 }
-
-
-int calculate(void)         //correct
-{
-    //++jishuqi;
-    //printf("The calculator is been used for the %d times\n",++jishuqi);
-    int i,j;
-    for(i=0,optimize_num=0;i<Vertices_Num-1;i++)
-    {
-        for(j=i+1;j<Vertices_Num;j++)
-        {
-            if(graph[i][j]&&(vertice_color[i]==vertice_color[j]))
-            optimize_num++;
-        }
-    }
-    return optimize_num;
-}
-
-int solution(int a)
-{
-    if(!a)
-    {
-        int up,low;
-        up=Vertices_Num;
-        low=0;
-        //Tabu_Length=10;
-        while(low<up)
-        {
-            color_num=(low+up)/2+1;
-            Tabu_Length=((Vertices_Num/10)>10)?((color_num<(Vertices_Num/4))?(Vertices_Num/5):Vertices_Num/10):10;
-            if(test())
-            {
-                up=color_num;
-            }
-            else
-            {
-                low=color_num;
-            }
-            depth++;
-        }
-        flag1=color_num;
-        while(test())
-        {
-            flag1=color_num;
-            depth++;
-            color_num--;
-        }
-        return flag1;
-    }
-    else
-    {
-        Tabu_Length=((Vertices_Num/10)>10)?((color_num<(Vertices_Num/4))?(Vertices_Num/5):Vertices_Num/10):10;
-        color_num=a;
-        flag1=color_num;
-        while(test())
-        {
-            flag1=color_num;
-            depth++;
-            color_num--;
-        }
-        return flag1;
-    }
-}
-
-//there is quicker way
 
