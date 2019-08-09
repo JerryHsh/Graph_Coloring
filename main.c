@@ -26,6 +26,8 @@ int flag1;
 
 clock_t start,end,mid;
 
+double duration;
+
 move_node best;
 move_node * Neighbourhood; //store the neighbourhood move
 
@@ -51,7 +53,7 @@ int main()
     for(i=0;i<j;i++)
     {
         mid=clock();
-        fprintf(f_log,"No %d turn**********************\n",i+1);
+        fprintf(f_log,"No %d turn*****************************************************************\n",i+1);
         //note=solution(note);
         if(!i)
         {
@@ -64,7 +66,8 @@ int main()
                 note=flag1;
         }
         end=clock();
-        fprintf(f_log,"No %d turn last %lf\n\n",i+1,end-mid);
+        duration=(double)(end-mid)/CLK_TCK;
+        fprintf(f_log,"No %d turn last %lf****************************************************************\n\n",i+1,duration);
     }
     free_matrix();
     free_tabu_list();

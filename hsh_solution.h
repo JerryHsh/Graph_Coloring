@@ -40,6 +40,8 @@ extern FILE * fp,*f_log;
 
 extern clock_t start,end,mid;
 
+extern double duration;
+
 int solution(int);
 //quicker way
 void input(void);
